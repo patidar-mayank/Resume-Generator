@@ -10,17 +10,28 @@
         body {
             background-color: black; /* Set background color to black */
             color: white; /* Set text color to white */
+            margin: 0;
+            padding: 0;
         }
         h1 {
             color: white; /* Set heading color to white */
         }
+        .form-container {
+            background-color: white; /* White background for the form */
+            color: black; /* Set text color to black for the form */
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px;
+        }
         .form-control {
-            background-color: #333; /* Light black background color */
-            color: white; /* Text color for inputs */
-            border-color: white; /* White border color */
+            background-color: #f8f9fa; /* Light gray background color */
+            color: black; /* Text color for inputs */
+            border-color: #ced4da; /* Border color */
+            margin-bottom: 10px;
         }
         .btn-primary {
             background-color: red; /* Red background color for submit button */
+            border: none;
         }
         .instructions-container {
             display: flex;
@@ -39,63 +50,69 @@
         .instructions p {
             color: white; /* Text color for instructions */
         }
+        .container-fluid {
+            padding: 0;
+        }
+        .row {
+            margin: 0;
+        }
+        .form-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color:black;
+        }
+        .form-container {
+            margin-top: 50px;
+        }
     </style>
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row justify-content-center">
             <!-- Form Section -->
             <div class="col-md-6">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 align="center">Resume Generator</h1>
+                <div class="form-container">
+                    <h1 class="form-title">Resume Generator</h1>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <form method="POST">
-                                {% csrf_token %}
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Phone</label>
-                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone No">
-                                </div> 
-                                <div class="form-group">
-                                    <label for="summary">About You</label>
-                                    <textarea class="form-control" id="summary" name="summary" placeholder="Enter summary here"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="degree">Degree</label>
-                                    <input type="text" class="form-control" id="degree" name="degree" placeholder="Enter Degree details here">
-                                </div>
-                                <div class="form-group">
-                                    <label for="school">School</label>
-                                    <input type="text" class="form-control" id="school" name="school" placeholder="Enter School details here">
-                                </div>    
-                                <div class="form-group">
-                                    <label for="university">University</label>
-                                    <input type="text" class="form-control" id="university" name="university" placeholder="Enter University details here">
-                                </div> 
-                                <div class="form-group">
-                                    <label for="previous_work">Experience</label>
-                                    <textarea class="form-control" id="previous_work" name="previous_work" placeholder="Enter Your Experience here"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="skills">Skills</label>
-                                    <textarea class="form-control" id="skills" name="skills" placeholder="Enter Your skills here"></textarea>
-                                </div>    
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email">
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone No">
+                        </div> 
+                        <div class="form-group">
+                            <label for="summary">About You</label>
+                            <textarea class="form-control" id="summary" name="summary" placeholder="Enter summary here"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="degree">Degree</label>
+                            <input type="text" class="form-control" id="degree" name="degree" placeholder="Enter Degree details here">
+                        </div>
+                        <div class="form-group">
+                            <label for="school">School</label>
+                            <input type="text" class="form-control" id="school" name="school" placeholder="Enter School details here">
+                        </div>    
+                        <div class="form-group">
+                            <label for="university">University</label>
+                            <input type="text" class="form-control" id="university" name="university" placeholder="Enter University details here">
+                        </div> 
+                        <div class="form-group">
+                            <label for="previous_work">Experience</label>
+                            <textarea class="form-control" id="previous_work" name="previous_work" placeholder="Enter Your Experience here"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="skills">Skills</label>
+                            <textarea class="form-control" id="skills" name="skills" placeholder="Enter Your skills here"></textarea>
+                        </div>    
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
             </div>
             

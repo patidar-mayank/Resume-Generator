@@ -3,28 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Resume</title>
+    
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.resume-container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #333;
+}
+
+header p {
+    margin: 5px 0;
+    color: #555;
+}
+
+header a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+section h2 {
+    font-size: 24px;
+    color: #333;
+    border-bottom: 2px solid #1e90ff;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+section p, section ul {
+    color: #555;
+    line-height: 1.6;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li::before {
+    content: "•";
+    color: #1e90ff;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+ </style>
 </head>
 <body>
-    <h2>{{user_profile.name}}</h2>
-    <h2>{{user_profile.email}}</h2>
-    <h2>{{user_profile.phone}}</h2>
-    <hr/>
-    <br/>
-    <p>Summary</p>
-    <p>{{user_profile.summary}}</p>
-    <hr/>
-    <p>Skills</p>
-    <p>{{user_profile.skills}}</p>
-    <hr/>
-    <p>Education</p>
-    <ul>
-        <li>Schooling: {{user_profile.school}}</li>
-        <li>{{user_profile.degree}} from {{user_profile.university}}</li>
-    </ul>
-    <hr/>
-    <p>Experience</p>
-    <p>{{user_profile.previous_work}}</p>
-    
+    <div class="resume-container">
+        <header>
+            <h1>{{user_profile.name}}</h1>
+            <p>{{user_profile.email}} | {{user_profile.phone}}</p>
+            <p><a href="{{user_profile.website}}" target="_blank">{{user_profile.website}}</a></p>
+            <p><a href="{{user_profile.linkedin}}" target="_blank">{{user_profile.linkedin}}</a></p>
+            <p><a href="{{user_profile.github}}" target="_blank">{{user_profile.github}}</a></p>
+        </header>
+        <hr/>
+        <section class="summary">
+            <h2>Summary</h2>
+            <p>{{user_profile.summary}}</p>
+        </section>
+        <hr/>
+        <section class="skills">
+            <h2>Skills</h2>
+            <p>{{user_profile.skills}}</p>
+        </section>
+        <hr/>
+        <section class="education">
+            <h2>Education</h2>
+            <ul>
+                <li>{{user_profile.schooling}}</li>
+                <li>{{user_profile.degree}} from {{user_profile.university}}</li>
+            </ul>
+        </section>
+        <hr/>
+        <section class="experience">
+            <h2>Experience</h2>
+            <p>{{user_profile.previous_work}}</p>
+        </section>
+    </div>
 </body>
 </html>
